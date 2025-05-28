@@ -12,7 +12,9 @@ export const Projects = () => {
       techStack: ["Python", "Pandas", "Scikit-learn", "Flask", "TensorFlow"],
       icon: "🎬",
       featured: true,
-      status: "Completed"
+      status: "Completed",
+      githubUrl: "https://github.com/yourusername/movie-recommendation-system",
+      liveUrl: "https://movie-recommender-demo.vercel.app"
     },
     {
       title: "Fraud Detection System", 
@@ -20,7 +22,9 @@ export const Projects = () => {
       techStack: ["Python", "TensorFlow", "Pandas", "NumPy", "Keras"],
       icon: "💳",
       featured: true,
-      status: "In Progress"
+      status: "In Progress",
+      githubUrl: "https://github.com/yourusername/fraud-detection-system",
+      liveUrl: "https://fraud-detector-demo.vercel.app"
     },
     {
       title: "Online Assessment Platform",
@@ -28,9 +32,19 @@ export const Projects = () => {
       techStack: ["React", "Node.js", "MongoDB", "Socket.io", "JWT"],
       icon: "📝",
       featured: false,
-      status: "Completed"
+      status: "Completed",
+      githubUrl: "https://github.com/yourusername/online-assessment-platform",
+      liveUrl: "https://assessment-platform-demo.vercel.app"
     }
   ];
+
+  const handleGithubClick = (githubUrl: string) => {
+    window.open(githubUrl, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleLiveDemo = (liveUrl: string) => {
+    window.open(liveUrl, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <section id="projects" className="py-24 bg-slate-950">
@@ -97,6 +111,7 @@ export const Projects = () => {
                     variant="outline" 
                     size="sm" 
                     className="flex-1 group/btn border-slate-700 text-gray-300 hover:border-blue-500 hover:text-blue-400 hover:bg-blue-900/20 transition-all duration-300"
+                    onClick={() => handleGithubClick(project.githubUrl)}
                   >
                     <Github className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
                     GitHub
@@ -104,6 +119,7 @@ export const Projects = () => {
                   <Button 
                     size="sm" 
                     className="flex-1 bg-blue-600 hover:bg-blue-700 text-white group/btn transition-all duration-300"
+                    onClick={() => handleLiveDemo(project.liveUrl)}
                   >
                     <ExternalLink className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
                     Live Demo
