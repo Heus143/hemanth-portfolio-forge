@@ -13,8 +13,8 @@ export const Projects = () => {
       icon: "🎬",
       featured: true,
       status: "Completed",
-      githubUrl: "https://github.com/yourusername/movie-recommendation-system",
-      liveUrl: "https://movie-recommender-demo.vercel.app"
+      githubUrl: "https://github.com/Heus143/movie-recommendation-system",
+      liveUrl: "https://github.com/Heus143/movie-recommendation-system"
     },
     {
       title: "Fraud Detection System", 
@@ -22,19 +22,9 @@ export const Projects = () => {
       techStack: ["Python", "TensorFlow", "Pandas", "NumPy", "Keras"],
       icon: "💳",
       featured: true,
-      status: "In Progress",
-      githubUrl: "https://github.com/yourusername/fraud-detection-system",
-      liveUrl: "https://fraud-detector-demo.vercel.app"
-    },
-    {
-      title: "Online Assessment Platform",
-      description: "Full-stack web application for conducting online tests and assessments with real-time monitoring, automated grading, and analytics dashboard.",
-      techStack: ["React", "Node.js", "MongoDB", "Socket.io", "JWT"],
-      icon: "📝",
-      featured: false,
       status: "Completed",
-      githubUrl: "https://github.com/yourusername/online-assessment-platform",
-      liveUrl: "https://assessment-platform-demo.vercel.app"
+      githubUrl: "https://github.com/Heus143/fraud-detection-system",
+      liveUrl: "https://github.com/Heus143/fraud-detection-system"
     }
   ];
 
@@ -46,11 +36,15 @@ export const Projects = () => {
     window.open(liveUrl, '_blank', 'noopener,noreferrer');
   };
 
+  const handleViewAllProjects = () => {
+    window.open('https://github.com/Heus143/Projects.git', '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section id="projects" className="py-24 bg-slate-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <p className="text-blue-400 text-sm font-medium tracking-wider uppercase mb-4">PORTFOLIO</p>
+          <p className="text-blue-400 text-sm font-medium tracking-wider uppercase mb-4">PROJECTS</p>
           <h2 className="text-4xl lg:text-5xl font-light text-white mb-6">
             Featured <span className="text-blue-400">Projects</span>
           </h2>
@@ -59,12 +53,12 @@ export const Projects = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <Card 
               key={project.title} 
               className={`group bg-slate-900/50 backdrop-blur-sm border-slate-800 hover:border-slate-700 transition-all duration-500 hover:scale-105 hover:shadow-2xl ${
-                project.featured ? 'lg:col-span-1 border-blue-800/50' : ''
+                project.featured ? 'border-blue-800/50' : ''
               }`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
@@ -80,7 +74,7 @@ export const Projects = () => {
                         Featured
                       </Badge>
                     )}
-                    <Badge variant={project.status === 'Completed' ? 'default' : 'secondary'} className="bg-slate-800 text-white border-slate-700">
+                    <Badge variant={project.status === 'Completed' ? 'default' : 'secondary'} className="bg-green-600 text-white border-green-700">
                       {project.status}
                     </Badge>
                   </div>
@@ -134,6 +128,7 @@ export const Projects = () => {
           <Button 
             variant="outline"
             size="lg"
+            onClick={handleViewAllProjects}
             className="px-8 py-4 text-lg font-medium border-2 border-blue-500 text-blue-400 hover:bg-blue-900/20 rounded-full transition-all duration-300 hover:scale-105"
           >
             View All Projects

@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { Github } from "lucide-react";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -16,10 +17,20 @@ export const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Create mailto link with form data
+    const subject = encodeURIComponent(`Contact from ${formData.name}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+    const mailtoLink = `mailto:hemanthkumardivvela@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
     toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
+      title: "Email Client Opened!",
+      description: "Your email client should open with the pre-filled message.",
     });
+    
     setFormData({ name: "", email: "", message: "" });
   };
 
@@ -127,24 +138,32 @@ export const Contact = () => {
                 </div>
               </CardContent>
             </Card>
-
-            <div className="flex space-x-4 justify-center">
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="border-blue-500 text-blue-400 hover:bg-blue-900/20 hover:border-blue-400 rounded-full"
-              >
-                LinkedIn
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="border-purple-500 text-purple-400 hover:bg-purple-900/20 hover:border-purple-400 rounded-full"
-              >
-                GitHub
-              </Button>
-            </div>
           </div>
+        </div>
+
+        {/* GitHub Links at Bottom */}
+        <div className="flex flex-col items-center space-y-4 mt-16 pt-8 border-t border-slate-800">
+          <div className="flex space-x-6">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              onClick={() => window.open('https://github.com/Heus143/hemanth-portfolio-forge.git', '_blank')}
+              className="border-blue-500 text-blue-400 hover:bg-blue-900/20 hover:border-blue-400 rounded-full px-6"
+            >
+              <Github className="mr-2 h-5 w-5" />
+              Portfolio Repository
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              onClick={() => window.open('https://github.com/Heus143/Projects.git', '_blank')}
+              className="border-purple-500 text-purple-400 hover:bg-purple-900/20 hover:border-purple-400 rounded-full px-6"
+            >
+              <Github className="mr-2 h-5 w-5" />
+              Projects Repository
+            </Button>
+          </div>
+          <p className="text-gray-500 text-sm">© 2024 Divvela Hemanth Kumar. All rights reserved.</p>
         </div>
       </div>
     </section>

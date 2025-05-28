@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin } from "lucide-react";
 
 export const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -57,14 +57,14 @@ export const Hero = () => {
           
           <div className="flex flex-col sm:flex-row gap-6 mb-12 justify-center lg:justify-start">
             <Button 
-              onClick={() => scrollToSection("projects")}
+              onClick={() => scrollToSection("contact")}
               className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-3 text-base font-medium group transition-all duration-300"
             >
               Discuss for Projects
             </Button>
             <Button 
               variant="outline"
-              onClick={() => scrollToSection("about")}
+              onClick={() => scrollToSection("projects")}
               className="border-2 border-slate-600 text-white hover:bg-slate-800 hover:border-slate-500 bg-slate-900/50 rounded-full px-8 py-3 text-base font-medium backdrop-blur-sm group transition-all duration-300"
             >
               View Portfolios
@@ -88,7 +88,29 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Download Resume Button Only */}
+          {/* Social Links and Download Resume */}
+          <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => window.open('https://github.com/Heus143', '_blank')}
+              className="border-slate-600 text-white hover:bg-slate-800 hover:border-slate-500 rounded-full px-6 bg-slate-900/50 backdrop-blur-sm transition-all duration-300"
+            >
+              <Github className="mr-2 h-5 w-5" />
+              GitHub
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => window.open('https://www.linkedin.com/in/hemanth-kumar-a19a9429a', '_blank')}
+              className="border-slate-600 text-white hover:bg-slate-800 hover:border-slate-500 rounded-full px-6 bg-slate-900/50 backdrop-blur-sm transition-all duration-300"
+            >
+              <Linkedin className="mr-2 h-5 w-5" />
+              LinkedIn
+            </Button>
+          </div>
+
+          {/* Download Resume Button */}
           <div className="flex justify-center lg:justify-start">
             <Button
               size="lg"
