@@ -34,6 +34,14 @@ export const Services = () => {
     }
   ];
 
+  const handleLearnMore = (serviceTitle: string) => {
+    // Scroll to contact section when Learn More is clicked
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="services" className="py-24 bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -77,6 +85,7 @@ export const Services = () => {
 
                 <Button 
                   variant="outline"
+                  onClick={() => handleLearnMore(service.title)}
                   className="w-full bg-slate-800/50 border-slate-700 text-white hover:bg-slate-700 hover:border-slate-600 rounded-xl transition-all duration-300"
                 >
                   Learn More

@@ -88,26 +88,8 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Social Links and Download Resume */}
-          <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={() => window.open('https://github.com/Heus143/portfolio.git', '_blank')}
-              className="border-slate-600 text-white hover:bg-slate-800 hover:border-slate-500 rounded-full px-6 bg-slate-900/50"
-            >
-              <span className="mr-2">🐙</span>
-              GitHub
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={() => window.open('https://www.linkedin.com/in/hemanth-kumar-a19a9429a', '_blank')}
-              className="border-slate-600 text-white hover:bg-slate-800 hover:border-slate-500 rounded-full px-6 bg-slate-900/50"
-            >
-              <span className="mr-2">💼</span>
-              LinkedIn
-            </Button>
+          {/* Download Resume Button Only */}
+          <div className="flex justify-center lg:justify-start">
             <Button
               size="lg"
               onClick={handleDownloadResume}
